@@ -36,6 +36,7 @@ module "app_nlb" {
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | container_port | The port on which the container will receive traffic. | string | `443` | no |
+| enable_cross_zone_load_balancing | If true, cross-zone load balancing of the load balancer will be enabled. | string | `true` | no |
 | enable_proxy_protocol_v2 | Boolean to enable / disable support for proxy protocol v2. | string | `true` | no |
 | environment | Environment tag, e.g prod. | string | - | yes |
 | name | The service name. | string | - | yes |

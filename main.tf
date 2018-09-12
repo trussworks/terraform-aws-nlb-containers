@@ -55,6 +55,8 @@ resource "aws_lb" "main" {
   name               = "nlb-${var.name}-${var.environment}"
   load_balancer_type = "network"
 
+  enable_cross_zone_load_balancing = "${var.enable_cross_zone_load_balancing}"
+
   subnet_mapping {
     subnet_id     = "${var.nlb_subnet_ids[0]}"
     allocation_id = "${var.nlb_eip_ids[0]}"
@@ -68,12 +70,6 @@ resource "aws_lb" "main" {
   subnet_mapping {
     subnet_id     = "${var.nlb_subnet_ids[2]}"
     allocation_id = "${var.nlb_eip_ids[2]}"
-  }
-
-  access_logs {
-    enabled = true
-    bucket  = "${var.logs_s3_bucket}"
-    prefix  = "nlb/${var.name}-${var.environment}"
   }
 
   tags = {

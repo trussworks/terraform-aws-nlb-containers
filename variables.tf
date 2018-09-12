@@ -1,7 +1,7 @@
 variable "container_port" {
   description = "The port on which the container will receive traffic."
-  type        = "string"
   default     = 443
+  type        = "string"
 }
 
 variable "environment" {
@@ -11,8 +11,14 @@ variable "environment" {
 
 variable "enable_proxy_protocol_v2" {
   description = "Boolean to enable / disable support for proxy protocol v2."
-  type        = "string"
   default     = "true"
+  type        = "string"
+}
+
+variable "enable_cross_zone_load_balancing" {
+  description = "If true, cross-zone load balancing of the load balancer will be enabled."
+  default     = true
+  type        = "string"
 }
 
 variable "name" {
@@ -27,8 +33,8 @@ variable "nlb_eip_ids" {
 
 variable "nlb_listener_port" {
   description = "The port on which the NLB will receive traffic."
-  type        = "string"
   default     = "443"
+  type        = "string"
 }
 
 variable "nlb_subnet_ids" {
