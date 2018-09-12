@@ -3,7 +3,7 @@
  *
  * Creates the following resources:
  *
- * * NLB with associated with 3 Elastic IP addresses.
+ * * NLB associated with 3 Elastic IP addresses.
  * * TCP listener.
  * * Target group for the TCP listener over the specified container port.
  *
