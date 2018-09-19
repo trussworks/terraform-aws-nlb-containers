@@ -30,5 +30,5 @@ output "nlb_listener_arn" {
 
 output "nlb_zone_id" {
   description = "The canonical hosted zone ID of the load balancer."
-  value       = "${aws_lb_listener.main.zone_id}"
+  value       = "${aws_lb.main.zone_id}"
 }
