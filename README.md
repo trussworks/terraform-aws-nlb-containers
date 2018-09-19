@@ -54,6 +54,7 @@ module "app_nlb" {
 | nlb_elastic_ips | List of public Elastic IP addresses associated with the NLB. |
 | nlb_listener_arn | The ARN associated with the listener on the NLB. |
 | nlb_target_group_id | ID of the NLB target group. |
+| nlb_zone_id | The canonical hosted zone ID of the load balancer. |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
