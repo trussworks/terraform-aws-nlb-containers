@@ -39,6 +39,7 @@ module "app_nlb" {
 | enable_cross_zone_load_balancing | If true, cross-zone load balancing of the load balancer will be enabled. | string | `true` | no |
 | enable_proxy_protocol_v2 | Boolean to enable / disable support for proxy protocol v2. | string | `true` | no |
 | environment | Environment tag, e.g prod. | string | - | yes |
+| healthcheck_port | The port on which the container will receive TCP health checks. | string | `443` | no |
 | name | The service name. | string | - | yes |
 | nlb_eip_ids | List of Elastic IP allocation IDs to associate with the NLB. Requires exactly 3 IPs. | list | - | yes |
 | nlb_listener_port | The port on which the NLB will receive traffic. | string | `443` | no |
