@@ -4,7 +4,7 @@ variable "container_port" {
   type        = "string"
 }
 
-variable "healthcheck_port" {
+variable "health_check_port" {
   description = "The port on which the container will receive TCP health checks."
   default     = 443
   type        = "string"

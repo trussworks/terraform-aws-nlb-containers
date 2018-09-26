@@ -111,7 +111,7 @@ resource "aws_lb_target_group" "main" {
 
   health_check {
     protocol = "TCP"
-    port     = "${var.healthcheck_port}"
+    port     = "${var.health_check_port}"
   }
 
   # Ensure the NLB exists before things start referencing this target group.
