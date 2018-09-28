@@ -110,8 +110,9 @@ resource "aws_lb_target_group" "main" {
   stickiness = []
 
   health_check {
-    protocol = "TCP"
+    protocol = "${var.health_check_protocol}"
     port     = "${var.health_check_port}"
+    path     = "${var.health_check_protocol == "HTTP" || var.health_check_protocol == "HTTPS" ? var.health_check_path : ""}"
   }
 
   # Ensure the NLB exists before things start referencing this target group.

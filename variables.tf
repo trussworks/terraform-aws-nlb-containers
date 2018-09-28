@@ -4,10 +4,22 @@ variable "container_port" {
   type        = "string"
 }
 
+variable "health_check_protocol" {
+  description = "The protocol that will be used for health checks.  Options are: TCP, HTTP, HTTPS"
+  default     = "TCP"
+  type        = "string"
+}
+
 variable "health_check_port" {
-  description = "The port on which the container will receive TCP health checks."
+  description = "The port on which the container will receive health checks."
   default     = 443
   type        = "string"
+}
+
+variable "health_check_path" {
+  description = "When using a HTTP(S) health check, the destination for the health check requests to the container."
+  type        = "string"
+  default     = "/"
 }
 
 variable "environment" {
