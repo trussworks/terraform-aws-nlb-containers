@@ -12,7 +12,7 @@ Creates the following resources:
 
 ```hcl
 module "app_nlb" {
-  source = "../../modules/aws-nlb-container-service"
+  source = "trussworks/nlb-containers/aws"
 
   name           = "app"
   environment    = "prod"
