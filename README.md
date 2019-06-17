@@ -7,7 +7,6 @@ Creates the following resources:
 * TCP listener.
 * Target group for the TCP listener over the specified container port.
 
-
 ## Usage
 
 ```hcl
@@ -30,34 +29,33 @@ module "app_nlb" {
 }
 ```
 
-
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| container_port | The port on which the container will receive traffic. | string | `443` | no |
-| enable_cross_zone_load_balancing | If true, cross-zone load balancing of the load balancer will be enabled. | string | `true` | no |
-| enable_proxy_protocol_v2 | Boolean to enable / disable support for proxy protocol v2. | string | `true` | no |
-| environment | Environment tag, e.g prod. | string | - | yes |
-| health_check_path | When using a HTTP(S) health check, the destination for the health check requests to the container. | string | `/` | no |
-| health_check_port | The port on which the container will receive health checks. | string | `443` | no |
-| health_check_protocol | The protocol that will be used for health checks.  Options are: TCP, HTTP, HTTPS | string | `TCP` | no |
-| name | The service name. | string | - | yes |
-| nlb_eip_ids | List of Elastic IP allocation IDs to associate with the NLB. Requires exactly 3 IPs. | list | - | yes |
-| nlb_listener_port | The port on which the NLB will receive traffic. | string | `443` | no |
-| nlb_subnet_ids | Subnets IDs for the NLB. | list | - | yes |
-| nlb_vpc_id | VPC ID to be used by the NLB. | string | - | yes |
+| container\_port | The port on which the container will receive traffic. | string | `"443"` | no |
+| enable\_cross\_zone\_load\_balancing | If true, cross-zone load balancing of the load balancer will be enabled. | string | `"true"` | no |
+| enable\_proxy\_protocol\_v2 | Boolean to enable / disable support for proxy protocol v2. | string | `"true"` | no |
+| environment | Environment tag, e.g prod. | string | n/a | yes |
+| health\_check\_path | When using a HTTP(S) health check, the destination for the health check requests to the container. | string | `"/"` | no |
+| health\_check\_port | The port on which the container will receive health checks. | string | `"443"` | no |
+| health\_check\_protocol | The protocol that will be used for health checks.  Options are: TCP, HTTP, HTTPS | string | `"TCP"` | no |
+| name | The service name. | string | n/a | yes |
+| nlb\_eip\_ids | List of Elastic IP allocation IDs to associate with the NLB. Requires exactly 3 IPs. | list | n/a | yes |
+| nlb\_listener\_port | The port on which the NLB will receive traffic. | string | `"443"` | no |
+| nlb\_subnet\_ids | Subnets IDs for the NLB. | list | n/a | yes |
+| nlb\_vpc\_id | VPC ID to be used by the NLB. | string | n/a | yes |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| nlb_arn | The ARN of the NLB. |
-| nlb_dns_name | DNS name of the NLB. |
-| nlb_elastic_ips | List of public Elastic IP addresses associated with the NLB. |
-| nlb_listener_arn | The ARN associated with the listener on the NLB. |
-| nlb_target_group_id | ID of the NLB target group. |
-| nlb_zone_id | The canonical hosted zone ID of the load balancer. |
+| nlb\_arn | The ARN of the NLB. |
+| nlb\_dns\_name | DNS name of the NLB. |
+| nlb\_elastic\_ips | List of public Elastic IP addresses associated with the NLB. |
+| nlb\_listener\_arn | The ARN associated with the listener on the NLB. |
+| nlb\_target\_group\_id | ID of the NLB target group. |
+| nlb\_zone\_id | The canonical hosted zone ID of the load balancer. |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
