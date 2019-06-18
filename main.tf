@@ -105,10 +105,6 @@ resource "aws_lb_target_group" "main" {
   # https://www.haproxy.org/download/1.8/doc/proxy-protocol.txt
   proxy_protocol_v2 = "${var.enable_proxy_protocol_v2}"
 
-  # Workaround for
-  # https://github.com/terraform-providers/terraform-provider-aws/issues/2746
-  stickiness = []
-
   health_check {
     protocol = "${var.health_check_protocol}"
     port     = "${var.health_check_port}"
