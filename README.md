@@ -15,6 +15,7 @@ module "app_nlb" {
 
   name           = "app"
   environment    = "prod"
+  logs_s3_bucket = "my-aws-logs"
 
   container_port           = "8443"
   enable_proxy_protocol_v2 = true
@@ -40,6 +41,7 @@ module "app_nlb" {
 | health\_check\_path | When using a HTTP(S) health check, the destination for the health check requests to the container. | string | `"/"` | no |
 | health\_check\_port | The port on which the container will receive health checks. | string | `"443"` | no |
 | health\_check\_protocol | The protocol that will be used for health checks.  Options are: TCP, HTTP, HTTPS | string | `"TCP"` | no |
+| logs\_s3\_bucket | S3 bucket for storing Network Load Balancer logs. | string | n/a | yes |
 | name | The service name. | string | n/a | yes |
 | nlb\_eip\_ids | List of Elastic IP allocation IDs to associate with the NLB. Requires exactly 3 IPs. | list | n/a | yes |
 | nlb\_listener\_port | The port on which the NLB will receive traffic. | string | `"443"` | no |
