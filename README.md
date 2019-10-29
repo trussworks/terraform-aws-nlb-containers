@@ -1,4 +1,3 @@
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 Creates a Network Load Balancer (NLB) for serving an ECS backed service.
 
 Creates the following resources:
@@ -6,6 +5,13 @@ Creates the following resources:
 * NLB associated with 3 Elastic IP addresses.
 * TCP listener.
 * Target group for the TCP listener over the specified container port.
+
+
+## Terraform Versions
+
+Terraform 0.12. Pin module version to ~> 2.X. Submit pull-requests to master branch.
+
+Terraform 0.11. Pin module version to ~> 1.5.0. Submit pull-requests to terraform011 branch.
 
 ## Usage
 
@@ -30,6 +36,7 @@ module "app_nlb" {
 }
 ```
 
+<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Inputs
 
 | Name | Description | Type | Default | Required |
@@ -43,9 +50,9 @@ module "app_nlb" {
 | health\_check\_protocol | The protocol that will be used for health checks.  Options are: TCP, HTTP, HTTPS | string | `"TCP"` | no |
 | logs\_s3\_bucket | S3 bucket for storing Network Load Balancer logs. | string | n/a | yes |
 | name | The service name. | string | n/a | yes |
-| nlb\_eip\_ids | List of Elastic IP allocation IDs to associate with the NLB. Requires exactly 3 IPs. | list | n/a | yes |
+| nlb\_eip\_ids | List of Elastic IP allocation IDs to associate with the NLB. Requires exactly 3 IPs. | list(string) | n/a | yes |
 | nlb\_listener\_port | The port on which the NLB will receive traffic. | string | `"443"` | no |
-| nlb\_subnet\_ids | Subnets IDs for the NLB. | list | n/a | yes |
+| nlb\_subnet\_ids | Subnets IDs for the NLB. | list(string) | n/a | yes |
 | nlb\_vpc\_id | VPC ID to be used by the NLB. | string | n/a | yes |
 
 ## Outputs
