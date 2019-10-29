@@ -27,6 +27,11 @@ variable "environment" {
   type        = string
 }
 
+variable "logs_s3_bucket" {
+  description = "S3 bucket for storing Network Load Balancer logs."
+  type        = "string"
+}
+
 variable "enable_proxy_protocol_v2" {
   description = "Boolean to enable / disable support for proxy protocol v2."
   default     = "true"

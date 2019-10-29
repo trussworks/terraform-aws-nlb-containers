@@ -12,10 +12,11 @@
  *
  * ```hcl
  * module "app_nlb" {
- *   source = "../../modules/aws-nlb-container-service"
+ *   source = "trussworks/nlb-containers/aws"
  *
  *   name           = "app"
  *   environment    = "prod"
+ *   logs_s3_bucket = "my-aws-logs"
  *
  *   container_port           = "8443"
  *   enable_proxy_protocol_v2 = true
@@ -70,6 +71,12 @@ resource "aws_lb" "main" {
   subnet_mapping {
     subnet_id     = var.nlb_subnet_ids[2]
     allocation_id = var.nlb_eip_ids[2]
+  }
+
+  access_logs {
+    enabled = true
+    bucket  = "${var.logs_s3_bucket}"
+    prefix  = "nlb/${var.name}-${var.environment}"
   }
 
   tags = {
