@@ -45,7 +45,7 @@ module "app_nlb" {
 | enable\_cross\_zone\_load\_balancing | If true, cross-zone load balancing of the load balancer will be enabled. | string | `"true"` | no |
 | enable\_proxy\_protocol\_v2 | Boolean to enable / disable support for proxy protocol v2. | string | `"true"` | no |
 | environment | Environment tag, e.g prod. | string | n/a | yes |
-| health\_check\_path | When using a HTTP(S) health check, the destination for the health check requests to the container. | string | `"/"` | no |
+| health\_check\_path | When using a HTTP\(S\) health check, the destination for the health check requests to the container. | string | `"/"` | no |
 | health\_check\_port | The port on which the container will receive health checks. | string | `"443"` | no |
 | health\_check\_protocol | The protocol that will be used for health checks.  Options are: TCP, HTTP, HTTPS | string | `"TCP"` | no |
 | logs\_s3\_bucket | S3 bucket for storing Network Load Balancer logs. | string | n/a | yes |
