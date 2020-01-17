@@ -29,7 +29,7 @@ variable "environment" {
 
 variable "logs_s3_bucket" {
   description = "S3 bucket for storing Network Load Balancer logs."
-  type        = "string"
+  type        = string
 }
 
 variable "enable_proxy_protocol_v2" {

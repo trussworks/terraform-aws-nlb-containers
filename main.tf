@@ -75,7 +75,7 @@ resource "aws_lb" "main" {
 
   access_logs {
     enabled = true
-    bucket  = "${var.logs_s3_bucket}"
+    bucket  = var.logs_s3_bucket
     prefix  = "nlb/${var.name}-${var.environment}"
   }
 
