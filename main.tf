@@ -119,6 +119,7 @@ resource "aws_lb_target_group" "main" {
   # https://www.haproxy.org/download/1.8/doc/proxy-protocol.txt
   proxy_protocol_v2 = var.enable_proxy_protocol_v2
 
+  # Custom health check timeouts are not supported for health checks for target groups with the TCP protocols.
   health_check {
     interval = var.health_check_interval
     protocol = var.health_check_protocol
