@@ -7,7 +7,7 @@
  * * TCP listener.
  * * Target group for the TCP listener over the specified container port.
  *
- * ## Terraform Version
+ * ## Terraform Versions
  *
  * Terraform 0.12. Pin module version to ~> 2.X. Submit pull-requests to master branch.
  *
