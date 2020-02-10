@@ -1,3 +1,4 @@
+<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 Creates a Network Load Balancer (NLB) for serving an ECS backed service.
 
 Creates the following resources:
@@ -6,8 +7,7 @@ Creates the following resources:
 * TCP listener.
 * Target group for the TCP listener over the specified container port.
 
-
-## Terraform Versions
+## Terraform Version
 
 Terraform 0.12. Pin module version to ~> 2.X. Submit pull-requests to master branch.
 
@@ -36,24 +36,32 @@ module "app_nlb" {
 }
 ```
 
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+## Providers
+
+| Name | Version |
+|------|---------|
+| aws | n/a |
+
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|:----:|:-----:|:-----:|
-| container\_port | The port on which the container will receive traffic. | string | `"443"` | no |
-| enable\_cross\_zone\_load\_balancing | If true, cross-zone load balancing of the load balancer will be enabled. | string | `"true"` | no |
-| enable\_proxy\_protocol\_v2 | Boolean to enable / disable support for proxy protocol v2. | string | `"true"` | no |
-| environment | Environment tag, e.g prod. | string | n/a | yes |
-| health\_check\_path | When using a HTTP\(S\) health check, the destination for the health check requests to the container. | string | `"/"` | no |
-| health\_check\_port | The port on which the container will receive health checks. | string | `"443"` | no |
-| health\_check\_protocol | The protocol that will be used for health checks.  Options are: TCP, HTTP, HTTPS | string | `"TCP"` | no |
-| logs\_s3\_bucket | S3 bucket for storing Network Load Balancer logs. | string | n/a | yes |
-| name | The service name. | string | n/a | yes |
-| nlb\_eip\_ids | List of Elastic IP allocation IDs to associate with the NLB. Requires exactly 3 IPs. | list(string) | n/a | yes |
-| nlb\_listener\_port | The port on which the NLB will receive traffic. | string | `"443"` | no |
-| nlb\_subnet\_ids | Subnets IDs for the NLB. | list(string) | n/a | yes |
-| nlb\_vpc\_id | VPC ID to be used by the NLB. | string | n/a | yes |
+|------|-------------|------|---------|:-----:|
+| container\_port | The port on which the container will receive traffic. | `string` | `443` | no |
+| enable\_cross\_zone\_load\_balancing | If true, cross-zone load balancing of the load balancer will be enabled. | `string` | `true` | no |
+| enable\_proxy\_protocol\_v2 | Boolean to enable / disable support for proxy protocol v2. | `string` | `"true"` | no |
+| environment | Environment tag, e.g prod. | `string` | n/a | yes |
+| health\_check\_interval | The approximate amount of time, in seconds, between health checks of an individual target. Minimum value 5 seconds, Maximum value 300 seconds. Default 30 seconds. | `string` | `30` | no |
+| health\_check\_path | When using a HTTP(S) health check, the destination for the health check requests to the container. | `string` | `"/"` | no |
+| health\_check\_port | The port on which the container will receive health checks. | `string` | `443` | no |
+| health\_check\_protocol | The protocol that will be used for health checks.  Options are: TCP, HTTP, HTTPS | `string` | `"TCP"` | no |
+| health\_check\_timeout | The health check timeout. Minimum value 2 seconds, Maximum value 60 seconds. Default 5 seconds. | `string` | `5` | no |
+| logs\_s3\_bucket | S3 bucket for storing Network Load Balancer logs. | `string` | n/a | yes |
+| name | The service name. | `string` | n/a | yes |
+| nlb\_eip\_ids | List of Elastic IP allocation IDs to associate with the NLB. Requires exactly 3 IPs. | `list(string)` | n/a | yes |
+| nlb\_listener\_port | The port on which the NLB will receive traffic. | `string` | `"443"` | no |
+| nlb\_subnet\_ids | Subnets IDs for the NLB. | `list(string)` | n/a | yes |
+| nlb\_vpc\_id | VPC ID to be used by the NLB. | `string` | n/a | yes |
+| target\_group\_name | Override the default name of the NLB's target group. Must be less than or equal to 32 characters. Default: ecs-[name]-[environment]-[port]. | `string` | `""` | no |
 
 ## Outputs
 

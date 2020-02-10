@@ -4,10 +4,16 @@ variable "container_port" {
   type        = string
 }
 
-variable "health_check_protocol" {
-  description = "The protocol that will be used for health checks.  Options are: TCP, HTTP, HTTPS"
-  default     = "TCP"
+variable "health_check_interval" {
+  description = "The approximate amount of time, in seconds, between health checks of an individual target. Minimum value 5 seconds, Maximum value 300 seconds. Default 30 seconds."
   type        = string
+  default     = 30
+}
+
+variable "health_check_path" {
+  description = "When using a HTTP(S) health check, the destination for the health check requests to the container."
+  type        = string
+  default     = "/"
 }
 
 variable "health_check_port" {
@@ -16,10 +22,16 @@ variable "health_check_port" {
   type        = string
 }
 
-variable "health_check_path" {
-  description = "When using a HTTP(S) health check, the destination for the health check requests to the container."
+variable "health_check_protocol" {
+  description = "The protocol that will be used for health checks.  Options are: TCP, HTTP, HTTPS"
+  default     = "TCP"
   type        = string
-  default     = "/"
+}
+
+variable "health_check_timeout" {
+  description = "The health check timeout. Minimum value 2 seconds, Maximum value 60 seconds. Default 5 seconds."
+  type        = string
+  default     = 5
 }
 
 variable "environment" {
@@ -70,3 +82,8 @@ variable "nlb_vpc_id" {
   type        = string
 }
 
+variable "target_group_name" {
+  description = "Override the default name of the NLB's target group. Must be less than or equal to 32 characters. Default: ecs-[name]-[environment]-[port]."
+  type        = string
+  default     = ""
+}
