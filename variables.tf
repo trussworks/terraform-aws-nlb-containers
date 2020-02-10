@@ -28,12 +28,6 @@ variable "health_check_protocol" {
   type        = string
 }
 
-variable "health_check_timeout" {
-  description = "The health check timeout. Minimum value 2 seconds, Maximum value 60 seconds. Default 5 seconds."
-  type        = string
-  default     = 5
-}
-
 variable "environment" {
   description = "Environment tag, e.g prod."
   type        = string

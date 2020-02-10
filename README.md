@@ -54,7 +54,6 @@ module "app_nlb" {
 | health\_check\_path | When using a HTTP(S) health check, the destination for the health check requests to the container. | `string` | `"/"` | no |
 | health\_check\_port | The port on which the container will receive health checks. | `string` | `443` | no |
 | health\_check\_protocol | The protocol that will be used for health checks.  Options are: TCP, HTTP, HTTPS | `string` | `"TCP"` | no |
-| health\_check\_timeout | The health check timeout. Minimum value 2 seconds, Maximum value 60 seconds. Default 5 seconds. | `string` | `5` | no |
 | logs\_s3\_bucket | S3 bucket for storing Network Load Balancer logs. | `string` | n/a | yes |
 | name | The service name. | `string` | n/a | yes |
 | nlb\_eip\_ids | List of Elastic IP allocation IDs to associate with the NLB. Requires exactly 3 IPs. | `list(string)` | n/a | yes |

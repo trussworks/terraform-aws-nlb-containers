@@ -120,7 +120,6 @@ resource "aws_lb_target_group" "main" {
   proxy_protocol_v2 = var.enable_proxy_protocol_v2
 
   health_check {
-    timeout  = var.health_check_timeout
     interval = var.health_check_interval
     protocol = var.health_check_protocol
     port     = var.health_check_port
