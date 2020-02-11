@@ -7,6 +7,11 @@
  * * TCP listener.
  * * Target group for the TCP listener over the specified container port.
  *
+ * ## Terraform Versions
+ *
+ * Terraform 0.12. Pin module version to ~> 2.0.2. Submit pull-requests to master branch.
+ *
+ * Terraform 0.11. Pin module version to ~> 1.5.0. Submit pull-requests to terraform011 branch.
  *
  * ## Usage
  *
@@ -97,7 +102,9 @@ resource "aws_lb_listener" "main" {
 }
 
 resource "aws_lb_target_group" "main" {
-  name = "ecs-${var.name}-${var.environment}-${var.container_port}"
+  # Name must be less than or equal to 32 characters, or AWS API returns error.
+  # Error: "name" cannot be longer than 32 characters
+  name = coalesce(var.target_group_name, format("ecs-%s-%s-%s", var.name, var.environment, var.container_port))
   port = var.container_port
 
   protocol    = "TCP"
@@ -112,7 +119,9 @@ resource "aws_lb_target_group" "main" {
   # https://www.haproxy.org/download/1.8/doc/proxy-protocol.txt
   proxy_protocol_v2 = var.enable_proxy_protocol_v2
 
+  # Custom health check timeouts are not supported for health checks for target groups with the TCP protocols.
   health_check {
+    interval = var.health_check_interval
     protocol = var.health_check_protocol
     port     = var.health_check_port
     path     = var.health_check_protocol == "HTTP" || var.health_check_protocol == "HTTPS" ? var.health_check_path : ""
@@ -126,4 +135,3 @@ resource "aws_lb_target_group" "main" {
     Automation  = "Terraform"
   }
 }
-

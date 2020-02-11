@@ -4,16 +4,10 @@ variable "container_port" {
   type        = string
 }
 
-variable "health_check_protocol" {
-  description = "The protocol that will be used for health checks.  Options are: TCP, HTTP, HTTPS"
-  default     = "TCP"
+variable "health_check_interval" {
+  description = "The approximate amount of time, in seconds, between health checks of an individual target. Minimum value 5 seconds, Maximum value 300 seconds. Default 30 seconds."
   type        = string
-}
-
-variable "health_check_port" {
-  description = "The port on which the container will receive health checks."
-  default     = 443
-  type        = string
+  default     = 30
 }
 
 variable "health_check_path" {
@@ -22,13 +16,25 @@ variable "health_check_path" {
   default     = "/"
 }
 
+variable "health_check_port" {
+  description = "The port on which the container will receive health checks."
+  default     = 443
+  type        = string
+}
+
+variable "health_check_protocol" {
+  description = "The protocol that will be used for health checks.  Options are: TCP, HTTP, HTTPS"
+  default     = "TCP"
+  type        = string
+}
+
 variable "environment" {
   description = "Environment tag, e.g prod."
   type        = string
 }
 
 variable "logs_s3_bucket" {
-  description = "S3 bucket for storing Network Load Balancer logs."
+  description = "S3 bucket for storing Network Load Balancer logs.  Access logs are created only if the load balancer has a TLS listener and they contain information only about TLS requests."
   type        = string
 }
 
@@ -70,3 +76,8 @@ variable "nlb_vpc_id" {
   type        = string
 }
 
+variable "target_group_name" {
+  description = "Override the default name of the NLB's target group. Must be less than or equal to 32 characters. Default: ecs-[name]-[environment]-[port]."
+  type        = string
+  default     = ""
+}
