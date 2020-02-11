@@ -34,7 +34,7 @@ variable "environment" {
 }
 
 variable "logs_s3_bucket" {
-  description = "S3 bucket for storing Network Load Balancer logs."
+  description = "S3 bucket for storing Network Load Balancer logs.  Access logs are created only if the load balancer has a TLS listener and they contain information only about TLS requests."
   type        = string
 }
 
