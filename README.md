@@ -1,4 +1,3 @@
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 Creates a Network Load Balancer (NLB) for serving an ECS backed service.
 
 Creates the following resources:
@@ -36,6 +35,7 @@ module "app_nlb" {
 }
 ```
 
+<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Providers
 
 | Name | Version |

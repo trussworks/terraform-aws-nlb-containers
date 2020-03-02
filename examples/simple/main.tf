@@ -9,11 +9,11 @@ module "aws_nlb" {
 }
 
 module "nlb_logs" {
-  source          = "trussworks/logs/aws"
-  version         = "~> 4"
-  s3_bucket_name  = var.logs_bucket
-  region          = var.region
-  nlb_logs_prefix = "nlb/${var.nlb_name}-${var.environment}"
+  source            = "trussworks/logs/aws"
+  version           = "~> 5.2.0"
+  s3_bucket_name    = var.logs_bucket
+  region            = var.region
+  nlb_logs_prefixes = ["nlb/${var.nlb_name}-${var.environment}"]
 }
 
 module "vpc" {
