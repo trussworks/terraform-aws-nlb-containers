@@ -36,16 +36,23 @@ module "app_nlb" {
 ```
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+## Requirements
+
+| Name | Version |
+|------|---------|
+| terraform | >= 0.12 |
+| aws | ~> 2.70 |
+
 ## Providers
 
 | Name | Version |
 |------|---------|
-| aws | n/a |
+| aws | ~> 2.70 |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:-----:|
+|------|-------------|------|---------|:--------:|
 | container\_port | The port on which the container will receive traffic. | `string` | `443` | no |
 | enable\_cross\_zone\_load\_balancing | If true, cross-zone load balancing of the load balancer will be enabled. | `string` | `true` | no |
 | enable\_proxy\_protocol\_v2 | Boolean to enable / disable support for proxy protocol v2. | `string` | `"true"` | no |
