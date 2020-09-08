@@ -7,6 +7,7 @@ Creates the following resources:
 * Target group for the TCP listener over the specified container port.
 
 ## Terraform Versions
+
 Terraform 0.13. Pin module version to ~> 4.X. Submit pull-requests to master branch.
 
 Terraform 0.12. Pin module version to ~> 3.X. Submit pull-requests to terraform012 branch.
@@ -41,14 +42,14 @@ module "app_nlb" {
 
 | Name | Version |
 |------|---------|
-| terraform | ~> 0.12.0 |
-| aws | ~> 2.70 |
+| terraform | ~> 0.13.0 |
+| aws | ~> 3.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| aws | ~> 2.70 |
+| aws | ~> 3.0 |
 
 ## Inputs
 
