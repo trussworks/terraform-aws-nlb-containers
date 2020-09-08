@@ -16,7 +16,6 @@ func TestTerraformAwsNlb(t *testing.T) {
 	nlbName := fmt.Sprintf("nlb-%s", strings.ToLower(random.UniqueId()))
 	logsBucket := fmt.Sprintf("terratest-aws-nlb-logs-%s", strings.ToLower(random.UniqueId()))
 	environment := "test"
-	awsRegion := "us-west-2"
 	vpcAzs := aws.GetAvailabilityZones(t, awsRegion)[:3]
 
 	terraformOptions := &terraform.Options{
@@ -25,7 +24,6 @@ func TestTerraformAwsNlb(t *testing.T) {
 			"environment": environment,
 			"nlb_name":    nlbName,
 			"logs_bucket": logsBucket,
-			"region":      awsRegion,
 			"vpc_azs":     vpcAzs,
 		},
 		EnvVars: map[string]string{
