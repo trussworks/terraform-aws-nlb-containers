@@ -7,8 +7,9 @@ Creates the following resources:
 * Target group for the TCP listener over the specified container port.
 
 ## Terraform Versions
+Terraform 0.13. Pin module version to ~> 4.X. Submit pull-requests to master branch.
 
-Terraform 0.12. Pin module version to ~> 2.0.2. Submit pull-requests to master branch.
+Terraform 0.12. Pin module version to ~> 3.X. Submit pull-requests to terraform012 branch.
 
 Terraform 0.11. Pin module version to ~> 1.5.0. Submit pull-requests to terraform011 branch.
 
