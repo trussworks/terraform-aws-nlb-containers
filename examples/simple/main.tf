@@ -10,8 +10,9 @@ module "aws_nlb" {
 
 module "nlb_logs" {
   source            = "trussworks/logs/aws"
-  version           = "~> 8"
+  version           = "~> 9"
   s3_bucket_name    = var.logs_bucket
+  region            = var.region
   nlb_logs_prefixes = ["nlb/${var.nlb_name}-${var.environment}"]
 }
 
