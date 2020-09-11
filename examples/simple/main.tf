@@ -13,6 +13,7 @@ module "nlb_logs" {
   version           = "~> 10"
   s3_bucket_name    = var.logs_bucket
   nlb_logs_prefixes = ["nlb/${var.nlb_name}-${var.environment}"]
+  allow_nlb         = true
 }
 
 module "vpc" {
