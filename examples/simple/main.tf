@@ -10,10 +10,10 @@ module "aws_nlb" {
 
 module "nlb_logs" {
   source            = "trussworks/logs/aws"
-  version           = "~> 5.2.0"
+  version           = "~> 10"
   s3_bucket_name    = var.logs_bucket
-  region            = var.region
   nlb_logs_prefixes = ["nlb/${var.nlb_name}-${var.environment}"]
+  allow_nlb         = true
 }
 
 module "vpc" {

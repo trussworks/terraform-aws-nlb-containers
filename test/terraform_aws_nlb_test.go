@@ -25,7 +25,6 @@ func TestTerraformAwsNlb(t *testing.T) {
 			"environment": environment,
 			"nlb_name":    nlbName,
 			"logs_bucket": logsBucket,
-			"region":      awsRegion,
 			"vpc_azs":     vpcAzs,
 		},
 		EnvVars: map[string]string{
