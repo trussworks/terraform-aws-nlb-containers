@@ -8,11 +8,10 @@ Creates the following resources:
 
 ## Terraform Versions
 
-Terraform 0.13. Pin module version to ~> 4.X. Submit pull-requests to master branch.
+Terraform 0.13 and newer. Pin module version to ~> 4.X. Submit pull-requests to master branch.
 
 Terraform 0.12. Pin module version to ~> 3.X. Submit pull-requests to terraform012 branch.
 
-Terraform 0.11. Pin module version to ~> 1.5.0. Submit pull-requests to terraform011 branch.
 
 ## Usage
 
@@ -42,14 +41,14 @@ module "app_nlb" {
 
 | Name | Version |
 |------|---------|
-| terraform | ~> 0.13.0 |
-| aws | ~> 3.0 |
+| terraform | >= 0.13.0 |
+| aws | >= 3.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| aws | ~> 3.0 |
+| aws | >= 3.0 |
 
 ## Inputs
 
