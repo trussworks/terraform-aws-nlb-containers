@@ -1,3 +1,4 @@
+
 jobs:
   terratest:
     docker:
@@ -29,6 +30,7 @@ jobs:
 references:
   circleci: trussworks/circleci:29ab89fdada1f85c5d8fb685a2c71660f0c5f60c
 version: 2.1
+
 workflows:
   validate:
     jobs:
