@@ -5,7 +5,7 @@ jobs:
     - auth:
         password: $DOCKER_PASSWORD
         username: $DOCKER_USERNAME
-      image: trussworks/circleci:29ab89fdada1f85c5d8fb685a2c71660f0c5f60c
+      image: trussworks/circleci:59995c229ea4cb1628862dc0e479183e64ccf662
     steps:
     - checkout
     - restore_cache:
@@ -28,7 +28,7 @@ jobs:
         paths:
         - ~/go/pkg/mod
 references:
-  circleci: trussworks/circleci:29ab89fdada1f85c5d8fb685a2c71660f0c5f60c
+  circleci: trussworks/circleci:59995c229ea4cb1628862dc0e479183e64ccf662
 version: 2.1
 
 workflows:
