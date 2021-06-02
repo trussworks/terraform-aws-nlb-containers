@@ -3,5 +3,6 @@
   "first-header-h1": false,
   "first-line-h1": false,
   "line_length": false,
+  "no-inline-html": false,
   "no-multiple-blanks": false
 }
