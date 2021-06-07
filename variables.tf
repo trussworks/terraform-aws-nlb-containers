@@ -56,8 +56,15 @@ variable "name" {
 }
 
 variable "nlb_eip_ids" {
-  description = "List of Elastic IP allocation IDs to associate with the NLB. Requires exactly 3 IPs."
+  description = "Use either this or nlb_ipv4_addrs, but not both. List of Elastic IP allocation IDs to associate with the NLB. Requires exactly 3 IPs. Not compatible with the nlb_ipv4_addrs variable."
   type        = list(string)
+  default     = []
+}
+
+variable "nlb_ipv4_addrs" {
+  description = "Use either this or nlb_eip_ids, but not both. List of private IPv4 addresses to associate with the NLB. Requires exactly 3 IPs. Not compatible with the nlb_eip_ids variable."
+  type        = list(string)
+  default     = []
 }
 
 variable "nlb_listener_port" {

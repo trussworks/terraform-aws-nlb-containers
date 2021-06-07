@@ -1,16 +1,41 @@
 #
+# Locals
+#
+
+locals {
+  # If using EIPs, the NLB cannot be internal. If it is, the following error will be thrown:
+  #    Elastic IPs are not supported for load balancers with scheme 'internal'
+  #
+  # Similarly, when using the private_ipv4_address field in the subnet_mapping definitions, the
+  # scheme must be set to internal.
+  #
+  # To simplify, internal is set to true if IPv4 addresses are being used, but it could also be
+  # determined based on whether or not EIPs are being used.
+  internal = local.use_ipv4_addrs
+
+  use_eips       = length(var.nlb_eip_ids) > 0
+  use_ipv4_addrs = length(var.nlb_ipv4_addrs) > 0
+}
+
+#
 # Elastic IP (EIP)
 #
 
 data "aws_eip" "nlb_eip1" {
+  count = local.use_eips ? 1 : 0
+
   id = var.nlb_eip_ids[0]
 }
 
 data "aws_eip" "nlb_eip2" {
+  count = local.use_eips ? 1 : 0
+
   id = var.nlb_eip_ids[1]
 }
 
 data "aws_eip" "nlb_eip3" {
+  count = local.use_eips ? 1 : 0
+
   id = var.nlb_eip_ids[2]
 }
 
@@ -22,21 +47,28 @@ resource "aws_lb" "main" {
   name               = "nlb-${var.name}-${var.environment}"
   load_balancer_type = "network"
 
+  # This option must be explicitly set or else Terraform will attempt to create a public NLB
+  # regardless of whether EIPs or private IPv4 addresses are used in the subnet mappings.
+  internal = local.internal
+
   enable_cross_zone_load_balancing = var.enable_cross_zone_load_balancing
 
   subnet_mapping {
-    subnet_id     = var.nlb_subnet_ids[0]
-    allocation_id = var.nlb_eip_ids[0]
+    subnet_id            = var.nlb_subnet_ids[0]
+    allocation_id        = local.use_eips ? var.nlb_eip_ids[0] : null
+    private_ipv4_address = local.use_ipv4_addrs ? var.nlb_ipv4_addrs[0] : null
   }
 
   subnet_mapping {
-    subnet_id     = var.nlb_subnet_ids[1]
-    allocation_id = var.nlb_eip_ids[1]
+    subnet_id            = var.nlb_subnet_ids[1]
+    allocation_id        = local.use_eips ? var.nlb_eip_ids[1] : null
+    private_ipv4_address = local.use_ipv4_addrs ? var.nlb_ipv4_addrs[1] : null
   }
 
   subnet_mapping {
-    subnet_id     = var.nlb_subnet_ids[2]
-    allocation_id = var.nlb_eip_ids[2]
+    subnet_id            = var.nlb_subnet_ids[2]
+    allocation_id        = local.use_eips ? var.nlb_eip_ids[2] : null
+    private_ipv4_address = local.use_ipv4_addrs ? var.nlb_ipv4_addrs[2] : null
   }
 
   access_logs {

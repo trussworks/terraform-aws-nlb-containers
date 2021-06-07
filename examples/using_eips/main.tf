@@ -6,6 +6,8 @@ module "aws_nlb" {
   nlb_eip_ids    = aws_eip.nlb[*].id
   nlb_subnet_ids = module.vpc.public_subnets
   nlb_vpc_id     = module.vpc.vpc_id
+
+  depends_on = [aws_eip.nlb]
 }
 
 module "nlb_logs" {

@@ -8,13 +8,13 @@ output "nlb_dns_name" {
   value       = aws_lb.main.dns_name
 }
 
-output "nlb_elastic_ips" {
-  description = "List of public Elastic IP addresses associated with the NLB."
+output "nlb_ips" {
+  description = "List of IP addresses associated with the NLB."
 
   value = [
-    data.aws_eip.nlb_eip1.public_ip,
-    data.aws_eip.nlb_eip2.public_ip,
-    data.aws_eip.nlb_eip3.public_ip,
+    local.use_eips ? data.aws_eip.nlb_eip1[0].public_ip : local.use_ipv4_addrs ? var.nlb_ipv4_addrs[0] : "undefined",
+    local.use_eips ? data.aws_eip.nlb_eip2[0].public_ip : local.use_ipv4_addrs ? var.nlb_ipv4_addrs[1] : "undefined",
+    local.use_eips ? data.aws_eip.nlb_eip3[0].public_ip : local.use_ipv4_addrs ? var.nlb_ipv4_addrs[2] : "undefined",
   ]
 }
 
@@ -32,4 +32,3 @@ output "nlb_zone_id" {
   description = "The canonical hosted zone ID of the load balancer."
   value       = aws_lb.main.zone_id
 }
-
