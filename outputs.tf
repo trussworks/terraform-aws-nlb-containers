@@ -18,11 +18,6 @@ output "nlb_ips" {
   ]
 }
 
-output "nlb_target_group_id" {
-  description = "ID of the NLB target group."
-  value       = aws_lb_target_group.main.id
-}
-
 output "nlb_listener_arn" {
   description = "The ARN associated with the listener on the NLB."
   value       = aws_lb_listener.main.arn
@@ -31,4 +26,14 @@ output "nlb_listener_arn" {
 output "nlb_zone_id" {
   description = "The canonical hosted zone ID of the load balancer."
   value       = aws_lb.main.zone_id
+}
+
+output "nlb_target_group_arn" {
+  description = "ARN of the NLB target group."
+  value       = aws_lb_target_group.main.arn
+}
+
+output "nlb_target_group_id" {
+  description = "ID of the NLB target group."
+  value       = aws_lb_target_group.main.id
 }

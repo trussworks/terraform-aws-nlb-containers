@@ -130,6 +130,7 @@ No modules.
 | <a name="output_nlb_dns_name"></a> [nlb\_dns\_name](#output\_nlb\_dns\_name) | DNS name of the NLB. |
 | <a name="output_nlb_ips"></a> [nlb\_ips](#output\_nlb\_ips) | List of IP addresses associated with the NLB. |
 | <a name="output_nlb_listener_arn"></a> [nlb\_listener\_arn](#output\_nlb\_listener\_arn) | The ARN associated with the listener on the NLB. |
+| <a name="output_nlb_target_group_arn"></a> [nlb\_target\_group\_arn](#output\_nlb\_target\_group\_arn) | ARN of the NLB target group. |
 | <a name="output_nlb_target_group_id"></a> [nlb\_target\_group\_id](#output\_nlb\_target\_group\_id) | ID of the NLB target group. |
 | <a name="output_nlb_zone_id"></a> [nlb\_zone\_id](#output\_nlb\_zone\_id) | The canonical hosted zone ID of the load balancer. |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
