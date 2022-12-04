@@ -2,7 +2,7 @@ module github.com/trussworks/terraform-aws-nlb-containers
 
 go 1.19
 
-require github.com/gruntwork-io/terratest v0.41.3
+require github.com/gruntwork-io/terratest v0.41.4
 
 require (
 	cloud.google.com/go v0.83.0 // indirect
