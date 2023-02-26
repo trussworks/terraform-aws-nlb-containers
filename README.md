@@ -72,7 +72,7 @@ module "app_nlb" {
 }
 ```
 
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- BEGIN_TF_DOCS -->
 ## Requirements
 
 | Name | Version |
@@ -133,7 +133,7 @@ No modules.
 | nlb\_target\_group\_arn | ARN of the NLB target group. |
 | nlb\_target\_group\_id | ID of the NLB target group. |
 | nlb\_zone\_id | The canonical hosted zone ID of the load balancer. |
-<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- END_TF_DOCS -->
 
 ## Developer Setup
 
