@@ -71,7 +71,7 @@ module "app_nlb" {
 
 | Name | Version |
 |------|---------|
-| terraform | >= 0.13.0 |
+| terraform | >= 1.0 |
 | aws | >= 3.0 |
 
 ## Providers
