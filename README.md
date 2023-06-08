@@ -6,12 +6,6 @@ Creates the following resources:
 - TCP listener.
 - Target group for the TCP listener over the specified container port.
 
-## Terraform Versions
-
-Terraform 0.13 and newer. Pin module version to ~> 4.X. Submit pull-requests to master branch.
-
-Terraform 0.12. Pin module version to ~> 2.X. Submit pull-requests to terraform012 branch.
-
 ### Upgrade from 3.x to 4.0.0
 
 Version 4.0.0 added the ability to specify IPv4 addresses instead of elastic IPs. The
