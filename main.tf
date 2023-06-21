@@ -53,6 +53,7 @@ resource "aws_lb" "main" {
 
   enable_cross_zone_load_balancing = var.enable_cross_zone_load_balancing
 
+  enable_deletion_protection = var.enable_deletion_protection
   subnet_mapping {
     subnet_id            = var.nlb_subnet_ids[0]
     allocation_id        = local.use_eips ? var.nlb_eip_ids[0] : null
