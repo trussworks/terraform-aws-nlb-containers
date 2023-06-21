@@ -88,3 +88,9 @@ variable "target_group_name" {
   type        = string
   default     = ""
 }
+
+variable "enable_deletion_protection" {
+  description = " If true, deletion of the load balancer will be disabled via the AWS API. This will prevent Terraform from deleting the load balancer"
+  type        = string
+  default     = false
+}

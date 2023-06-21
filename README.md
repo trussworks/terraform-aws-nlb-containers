@@ -101,6 +101,7 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | container\_port | The port on which the container will receive traffic. | `string` | `443` | no |
 | enable\_cross\_zone\_load\_balancing | If true, cross-zone load balancing of the load balancer will be enabled. | `string` | `true` | no |
+| enable\_deletion\_protection | If true, deletion of the load balancer will be disabled via the AWS API. This will prevent Terraform from deleting the load balancer | `string` | `false` | no |
 | enable\_proxy\_protocol\_v2 | Boolean to enable / disable support for proxy protocol v2. | `string` | `"true"` | no |
 | environment | Environment tag, e.g prod. | `string` | n/a | yes |
 | health\_check\_interval | The approximate amount of time, in seconds, between health checks of an individual target. Minimum value 5 seconds, Maximum value 300 seconds. Default 30 seconds. | `string` | `30` | no |
